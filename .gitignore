@@ -1,0 +1,16 @@
+# Data files
+data/raw/*.csv
+data/raw/*.xlsx
+data/raw/*.zip
+
+# mac system files
+.DS_Store
+**/.DS_Store
+
+# Python
+__pycache__/
+
+# R environment
+.Rhistory
+.RData
+.Rproj.user/
