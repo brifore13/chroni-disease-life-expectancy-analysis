@@ -5,6 +5,7 @@
 - **Granularity:** One row per county
 - **Key measures:**
 - **Columns General:** Extensive chronic disease data by county
+Using age-adjusted prevalence (AdjPrev) for all measures to enable fair comparison across counties with different age distributions.
 
 ## NCHS Life Expectancy by State & Sex
 - **Source:** National Vital Statistics System
