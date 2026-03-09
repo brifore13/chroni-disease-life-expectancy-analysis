@@ -37,3 +37,21 @@ ggplot(data=cor_df, aes(x = reorder(Disease, abs(Correlation)), y = abs(Correlat
   )
 
 ggsave("visualizations/q2_disease_correlation_ranking.png", width = 8, height = 6)
+
+# ============================================================
+# Clinical observations and follow-up questions
+# ============================================================
+# 1. Cancer prevalence shows slight POSITIVE correlation with LE
+#    - Likely reflects screening/diagnosis bias: wealthier states
+#      detect more cancer, especially treatable types (skin, breast, prostate)
+#    - Cancer MORTALITY data would likely show inverse relationship
+#
+# 2. Arthritis correlates nearly as strongly as diabetes (r=-0.745)
+#    - Not a direct cause of organ disease, but a mobility/pain cascade:
+#      arthritis → pain → inactivity → obesity → CVD/diabetes
+#    - May serve as proxy for downstream metabolic effects
+#
+# 3. Follow-up: How do lifestyle risk factors and social determinants
+#    mediate the disease-LE relationship? (Questions 5-7)
+#    - Does controlling for physical inactivity weaken arthritis correlation?
+#    - Does food insecurity explain disease burden independently?
