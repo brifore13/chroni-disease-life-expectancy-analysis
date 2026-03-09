@@ -113,6 +113,7 @@ GROUP BY StateDesc;
 -- ========================================================
 -- state_analysis: 
 --      state disease averages by life expectancy (2022)
+-- note: KY/PA missing most PLACES measures
 -- ========================================================
 DROP VIEW IF EXISTS state_analysis;
 
