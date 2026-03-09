@@ -4,14 +4,7 @@
 -- ========================================================
 
 -- ========================================================
--- 1. State Ranking by life expectancy
--- ========================================================
-SELECT State, LifeExpectancy
-FROM state_analysis
-ORDER BY LifeExpectancy DESC;
-
--- ========================================================
--- 2. Calculate Average Disease Burden
+-- 1. Calculate Average Disease Burden
 --      Average All: arthritis, bphigh, cancer, casthma, chd,
 --      copd, depression, diabetes, highchol, obesity, stroke
 -- ========================================================
@@ -37,4 +30,5 @@ SELECT
     CASE WHEN OBESITY IS NOT NULL THEN 1 ELSE 0 END +
     CASE WHEN STROKE IS NOT NULL THEN 1 ELSE 0 END), 0), 1) AS DiseaseBurden
 FROM state_analysis
+WHERE DIABETES IS NOT NULL
 ORDER BY LifeExpectancy DESC;
