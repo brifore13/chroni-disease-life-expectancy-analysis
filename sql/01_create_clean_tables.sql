@@ -10,6 +10,7 @@
 DROP TABLE IF EXISTS places_clean;
 DROP TABLE IF EXISTS life_exp_clean;
 DROP TABLE IF EXISTS usaleep_clean;
+
 -- ============================================================
 -- PLACES: County-level chronic disease & health measures
 -- ============================================================
@@ -77,54 +78,18 @@ SELECT
 FROM places_county;    
 
 -- ============================================================
--- Life Expectancy by State & Sex (2018-2021 combined)
+-- Life Expectancy by State & Sex (2018-2022)
 -- ============================================================
 
 CREATE TABLE life_exp_clean AS
 SELECT
-    State,
+    CAST(Year AS INTEGER) AS Year,
+    Location AS State,
     Sex,
-    CAST(NULLIF(LEB, '') AS REAL) AS LifeExpectancy,
+    CAST(NULLIF("Life Expectancy", '') AS REAL) AS LifeExpectancy,
     CAST(NULLIF(SE, '') AS REAL) AS StandardError,
-    NULLIF(Quartile, '') AS Quartile,
-    2018 AS Year
-FROM life_exp_2018
-WHERE State != 'United States'
-
-UNION ALL
-
-SELECT
-    State,
-    Sex,
-    CAST(NULLIF(LEB, '') AS REAL) AS LifeExpectancy,
-    CAST(NULLIF(SE, '') AS REAL) AS StandardError,
-    NULLIF(Quartile, '') AS Quartile,
-    2019 AS Year
-FROM life_exp_2019
-WHERE State != 'United States'
-
-UNION ALL
-
-SELECT
-    State,
-    Sex,
-    CAST(NULLIF(LE, '') AS REAL) AS LifeExpectancy,
-    CAST(NULLIF(SE, '') AS REAL) AS StandardError,
-    NULLIF(Quartile, '') AS Quartile,
-    2020 AS Year
-FROM life_exp_2020
-WHERE State != 'United States'
-
-UNION ALL
-
-SELECT
-    State,
-    Sex,
-    CAST(NULLIF(LE, '') AS REAL) AS LifeExpectancy,
-    CAST(NULLIF(SE, '') AS REAL) AS StandardError,
-    NULLIF(Quartile, '') AS Quartile,
-    2021 AS Year
-FROM life_exp_2021
+    NULLIF(Quartile, '') AS Quartile
+FROM life_exp_raw
 WHERE State != 'United States';
 
 -- ============================================================
