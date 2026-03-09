@@ -109,3 +109,57 @@ SELECT
 
 FROM places_clean
 GROUP BY StateDesc;
+
+-- ========================================================
+-- state_analysis: 
+--      state disease averages by life expectancy (2022)
+-- ========================================================
+DROP VIEW IF EXISTS state_analysis;
+
+CREATE VIEW state_analysis AS
+SELECT 
+    s.StateDesc AS State,
+    l.LifeExpectancy,   
+    s.ARTHRITIS,   
+    s.BPHIGH,
+    s.CANCER,      
+    s.CASTHMA,     
+    s.CHD,         
+    s.COPD,        
+    s.DEPRESSION,  
+    s.DIABETES,    
+    s.HIGHCHOL,    
+    s.OBESITY, 
+    s.STROKE,
+    s.BINGE,   
+    s.CSMOKING,    
+    s.LPA,         
+    s.SLEEP,       
+    s.ACCESS2,     
+    s.BPMED,       
+    s.CHECKUP,     
+    s.CHOLSCREEN,  
+    s.COLON_SCREEN,
+    s.DENTAL,      
+    s.MAMMOUSE,    
+    s.GHLTH,       
+    s.MHLTH,       
+    s.PHLTH,       
+    s.HEARING,     
+    s.VISION,      
+    s.COGNITION,   
+    s.MOBILITY,    
+    s.SELFCARE,    
+    s.INDEPLIVE,   
+    s.DISABILITY,  
+    s.TEETHLOST,   
+    s.LONELINESS,  
+    s.FOODSTAMP,   
+    s.FOODINSECU,  
+    s.HOUSINSECU,  
+    s.SHUTUTILITY, 
+    s.LACKTRPT,    
+    s.EMOTIONSPT
+FROM state_disease AS s
+JOIN life_exp_clean AS l ON l.State = s.StateDesc
+WHERE l.Sex = 'Total' AND l.Year = 2022;
