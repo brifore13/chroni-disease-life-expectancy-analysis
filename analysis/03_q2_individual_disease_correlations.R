@@ -26,9 +26,13 @@ cor_df <- data.frame(
 cor_df <- cor_df %>% arrange(Correlation)
 print(cor_df)
 
-ggplot(data=cor_df, aes(x = reorder(Disease, abs(Correlation)), y = abs(Correlation))) +
+ggplot(data=cor_df, aes(x = reorder(Disease, abs(Correlation)), y = abs(Correlation), fill = Correlation > 0)) +
   geom_col() +
   coord_flip() +
+  scale_fill_manual(values = c("TRUE" = "steelblue", "FALSE" = "tomato"),
+                    labels = c("TRUE" = "Positive", 
+                               "FALSE" = "Negative"),
+                    name = "Direction") +
   labs(
     title = "Correlation of Individual Disease with Life Expectancy",
     subtitle = "By state, 2022 | Stronger correlation = stronger association with lower LE",

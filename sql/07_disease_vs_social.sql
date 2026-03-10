@@ -1,11 +1,10 @@
 -- =====================================================================
--- Q4: Does lifestyle matter?
--- Analysis of disease burden vs. lifestyle risk factors
+-- Q5: Do social determinants impact health?
+-- Analysis of disease burden vs. social determinants
 -- =====================================================================
 -- =====================================================================
--- 4a: Effect of lifestyle on life expectancy
--- 4b: Effect of lifestyle on disease burden
--- 4c: Ranking of risk factors impact on life expectancy
+-- 5a: Effect of social determinants on life expectancy
+-- 5b: Effect of social determinants on disease burden
 -- =====================================================================
 
 SELECT
@@ -27,17 +26,25 @@ SELECT
     CASE WHEN HIGHCHOL IS NOT NULL THEN 1 ELSE 0 END +
     CASE WHEN OBESITY IS NOT NULL THEN 1 ELSE 0 END +
     CASE WHEN STROKE IS NOT NULL THEN 1 ELSE 0 END), 0), 1) AS DiseaseBurden,
-    -- Lifestyle risk factors: BINGE, CSMOKING, LPA, SLEEP
-    ROUND((COALESCE(BINGE, 0) + COALESCE(CSMOKING, 0) +
-    COALESCE(LPA, 0) + COALESCE(SLEEP, 0)) 
-    / NULLIF((CASE WHEN BINGE IS NOT NULL THEN 1 ELSE 0 END +
-    CASE WHEN CSMOKING IS NOT NULL THEN 1 ELSE 0 END +
-    CASE WHEN LPA IS NOT NULL THEN 1 ELSE 0 END +
-    CASE WHEN SLEEP IS NOT NULL THEN 1 ELSE 0 END), 0), 1) AS LifestyleRisk,
-    BINGE,
-    CSMOKING,
-    LPA,
-    SLEEP
+    -- Social: LONELINESS, FOODSTAMP, FOODINSECU, HOUSINSECU, SHUTUTILITY, LACKTRPT, EMOTIONSPT
+    ROUND((COALESCE(LONELINESS, 0) + COALESCE(FOODSTAMP, 0) + COALESCE(FOODINSECU, 0) +
+    COALESCE(HOUSINSECU, 0) + COALESCE(SHUTUTILITY, 0)+ COALESCE(LACKTRPT, 0)+
+    COALESCE(EMOTIONSPT, 0))
+    / NULLIF((CASE WHEN LONELINESS IS NOT NULL THEN 1 ELSE 0 END +
+    CASE WHEN FOODSTAMP IS NOT NULL THEN 1 ELSE 0 END +
+    CASE WHEN FOODINSECU IS NOT NULL THEN 1 ELSE 0 END +
+    CASE WHEN HOUSINSECU IS NOT NULL THEN 1 ELSE 0 END +
+    CASE WHEN SHUTUTILITY IS NOT NULL THEN 1 ELSE 0 END +
+    CASE WHEN LACKTRPT IS NOT NULL THEN 1 ELSE 0 END + 
+    CASE WHEN EMOTIONSPT IS NOT NULL THEN 1 ELSE 0 END), 0), 1) AS SocialRisk,
+    LONELINESS,
+    FOODSTAMP,
+    FOODINSECU,
+    HOUSINSECU,
+    SHUTUTILITY,
+    LACKTRPT,
+    EMOTIONSPT
 FROM state_analysis
 WHERE DIABETES IS NOT NULL
 ORDER BY LifeExpectancy DESC;
+
