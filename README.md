@@ -5,6 +5,10 @@ An analysis of how chronic disease prevalence relates to life expectancy across 
 ## Project Overview
 This project examines the relationship between chronic disease burden (diabetes, obesity, high blood pressure, high cholesterol, physical inactivity) and life expectancy at the county and state level across the United States. The goal is to identify geographic patterns, quantify risk factor contributions, and surface insights relevant to public health resource allocation.
 
+## Q1: Does burden of disease predict life expectancy across states
+![Weighted Average of Disease Burden Across State Life Expectancy](visualizations/q1_disease_burden_vs_life_exp.png)
+**Finding:** Strong inverse correlation (r = -0.86, p < 0.001). Disease burden alone explains 73.5% of life expectancy variation across states. Each 1% increase in average disease prevalence is associated with a 1.28-year decrease in life expectancy.
+
 ## Data Sources
 | Dataset | Source | Level | Download |
 |---------|--------|-------|----------|
@@ -23,7 +27,7 @@ This project examines the relationship between chronic disease burden (diabetes,
 ## Project Structure
 ```
 ├── data/
-│   ├── raw/              # Original datasets (not tracked in Git)
+│   ├── raw/              # Original datasets
 │   └── processed/        # Cleaned, joined data ready for analysis
 ├── sql/
 │   └── *.sql             # Data transformation and exploration queries
@@ -31,7 +35,7 @@ This project examines the relationship between chronic disease burden (diabetes,
 │   └── *.Rmd             # R Markdown analysis notebooks
 ├── visualizations/
 │   ├── screenshots/      # Dashboard screenshots for README
-│   └── *.twbx            # Tableau workbooks (not tracked)
+│   └── *.twbx            # Tableau workbooks
 ├── docs/
 │   └── data_dictionary.md
 └── README.md
