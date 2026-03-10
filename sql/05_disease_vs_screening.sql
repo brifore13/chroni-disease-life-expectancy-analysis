@@ -1,10 +1,12 @@
 -- =====================================================================
--- Q3: Do disease screenings matter?
+-- Q3: Do disease screenings or access to healthcare matter?
 -- Analysis of disease burden vs. screening participation by state
 -- =====================================================================
 -- =====================================================================
 -- 3a: Effect of screenings on life expectancy 
 -- 3b: Effect of screenings on disease burden
+-- 3c: Effect of healthcare access on life expectancy
+-- 3d: Effect of healthcare access on disease burden
 -- =====================================================================
 
 SELECT
