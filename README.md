@@ -58,7 +58,7 @@ This project examines the relationship between chronic disease burden (diabetes,
 ├── sql/
 │   └── *.sql             # Data transformation and exploration queries
 ├── analysis/
-│   └── *.Rmd             # R Markdown analysis notebooks
+│   └── *.R               # R analysis done in Rstudio
 ├── visualizations/
 │   ├── screenshots/      # Dashboard screenshots for README
 │   └── *.twbx            # Tableau workbooks
@@ -68,4 +68,4 @@ This project examines the relationship between chronic disease burden (diabetes,
 ```
 
 # Author
-Bri Foreman, 2026
+Brianna Foreman, 2026
