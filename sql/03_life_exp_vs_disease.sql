@@ -1,13 +1,14 @@
--- ========================================================
--- Analyze States comparing life expectancy and disease
+-- ======================================================================
+-- Q1. Does disease burden impact life expectancy?
+-- Analyze States comparing life expectancy and total disease
 -- Uses 'state_analysis' table view
--- ========================================================
+-- ======================================================================
 
--- ========================================================
--- 1. Calculate Average Disease Burden
+-- ======================================================================
+-- 1. Calculate Weighted Average Disease Burden
 --      Average All: arthritis, bphigh, cancer, casthma, chd,
 --      copd, depression, diabetes, highchol, obesity, stroke
--- ========================================================
+-- ======================================================================
 
 SELECT
     State,
