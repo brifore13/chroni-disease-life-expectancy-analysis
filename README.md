@@ -9,6 +9,10 @@ This project examines the relationship between chronic disease burden (diabetes,
 ![Weighted Average of Disease Burden Across State Life Expectancy](visualizations/q1_disease_burden_vs_life_exp.png)
 **Finding:** Strong inverse correlation (r = -0.86, p < 0.001). Disease burden alone explains 73.5% of life expectancy variation across states. Each 1% increase in average disease prevalence is associated with a 1.28-year decrease in life expectancy.
 
+## Q2: Which diseases have the greatest impact on life expectancy across states
+![Correlation Strength of Individual Disease Across State Life Expectancy](visualizations/q2_disease_correlation_ranking.png)
+**Finding:** High blood pressure is the strongest predictor of lower life expectancy (r = -0.86), followed by COPD (r = -0.83), stroke (r = -0.82), and coronary heart disease (r = -0.79). Cardiovascular and metabolic conditions dominate the top of the ranking. Cancer and asthma showed no statistically significant correlation with life expectancy (p > 0.05). All other disease correlations were statistically significant (p < 0.05).
+
 ## Data Sources
 | Dataset | Source | Level | Download |
 |---------|--------|-------|----------|
