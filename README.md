@@ -31,6 +31,7 @@ This project examines the relationship between chronic disease burden (diabetes,
 **Finding:** Social determinants significantly predict lower life expectancy (r = -0.58, p < 0.001). Threat of utility shutoff is the strongest individual social predictor (r = -0.81), serving as a powerful proxy for compounding economic disadvantage. Note: 9 states excluded due to missing social determinant data.
 
 ## Q6: What factors matter most when everything competes?
+![Multivariate Predictors of Life Expectancy](visualizations/q6_combined_categories_vs_life_exp.png)
 ![Causal Pathway](visualizations/q6_causal_pathway.png)
 
 **Finding:** When disease burden, lifestyle risk, screening rate, access barriers, and social determinants are modeled together, only disease burden significantly predicts life expectancy (p < 0.001, R² = 0.83). A follow-up model confirms lifestyle risk is the only significant driver of disease burden (p < 0.001). Social determinants correlate strongly with both lifestyle risk (r = 0.55) and access barriers (r = 0.51), confirming that disadvantage compounds. The full causal chain: **social disadvantage → poor lifestyle + access barriers → disease burden → lower life expectancy.**
