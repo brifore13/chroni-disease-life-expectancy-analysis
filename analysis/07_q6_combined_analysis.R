@@ -25,8 +25,6 @@ model_disease_drivers <- lm(DiseaseBurden ~ ScreeningRate + AccessBarrier +
 summary(model_disease_drivers)
 
 # --- 6b: Individual risks impact on life expectancy ---
-
-
 model_individual <- lm(LifeExpectancy ~ ., data = combined_individual %>% select(-State))
 summary(model_individual)
 
@@ -90,10 +88,13 @@ ggplot() +
   # Title
   labs(title = "Causal Pathway: What Drives Life Expectancy?",
        subtitle = "Multivariate regression results | Only significant pathways shown as solid lines") +
-  theme_void() +
+  theme_gray() +
   theme(plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
         plot.subtitle = element_text(size = 10, hjust = 0.5, color = "gray40"),
-        plot.background = element_rect(fill = "white", color = NA)) +
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank(),
+        panel.grid = element_blank()) +
   xlim(-0.5, 10.5) +
   ylim(-0.5, 5.5)
 ggsave("visualizations/q6_causal_pathway.png", width = 10, height = 6)
